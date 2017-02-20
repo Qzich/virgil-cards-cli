@@ -1,4 +1,4 @@
 #!/usr/bin/env php
 <?php
 
-require '../src/search.php';
+require __DIR__ . '/../src/search.php';

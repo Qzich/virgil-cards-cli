@@ -1,4 +1,4 @@
 #!/usr/bin/env php
 <?php
 
-require '../src/revoke.php';
+require __DIR__ . '/../src/revoke.php';

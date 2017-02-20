@@ -1,4 +1,4 @@
 #!/usr/bin/env php
 <?php
 
-require '../src/get.php';
+require __DIR__ . '/../src/get.php';

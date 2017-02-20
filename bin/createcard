@@ -1,4 +1,4 @@
 #!/usr/bin/env php
 <?php
 
-require '../src/create.php';
+require __DIR__ . '/../src/create.php';

@@ -1,6 +1,5 @@
 <?php
 
-use Virgil\Sdk\Client\Requests\Constants\CardScopes;
 use Virgil\Sdk\Client\Requests\CreateCardRequest;
 
 require 'base.php';

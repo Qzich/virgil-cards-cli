@@ -7,9 +7,9 @@ use Virgil\Sdk\Client\VirgilClient;
 use Virgil\Sdk\Client\VirgilClientParams;
 use Virgil\Sdk\Cryptography\VirgilCrypto;
 
-require '../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
-$config = require '../config.php';
+$config = require __DIR__ . '/../config.php';
 
 $identityType = 'phpsdktest';
 $scope = CardScopes::TYPE_APPLICATION;
@@ -29,9 +29,11 @@ $privateKeyReference = $crypto->importPrivateKey($privateKeyBuffer);
 $identity = baseIdentityGenerator('ykuzichtest');
 
 $params = new VirgilClientParams($config['access_token']);
-$params->setCardsServiceAddress('https://cards-stg.virgilsecurity.com');
-$params->setReadCardsServiceAddress('https://cards-ro-stg.virgilsecurity.com');
-$params->setIdentityServiceAddress('https://identity-stg.virgilsecurity.com');
+
+$params->setCardsServiceAddress($config['cards_service_host']);
+$params->setReadCardsServiceAddress($config['read_cards_service_host']);
+$params->setIdentityServiceAddress($config['identity_service_host']);
+$params->setRegistrationAuthorityService($config['ra_service_host']);
 
 $virgilClient = new VirgilClient($params);
 $requestSigner = new RequestSigner($crypto);
