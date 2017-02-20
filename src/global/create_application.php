@@ -1,10 +1,10 @@
 <?php
+use Virgil\Sdk\Client\Requests\PublishGlobalCardRequest;
 
-use Virgil\Sdk\Client\Requests\CreateCardRequest;
+require_once __DIR__ . '/../base.php';
 
-require 'base.php';
 
-$request = new CreateCardRequest($identity(), $identityType, $crypto->exportPublicKey($publicKeyReference), $scope);
+$request = new PublishGlobalCardRequest($identity(), 'application', $crypto->exportPublicKey($publicKeyReference));
 
 $requestSigner->selfSign($request, $privateKeyReference)
               ->authoritySign(
@@ -17,8 +17,4 @@ $requestSigner->selfSign($request, $privateKeyReference)
               )
 ;
 
-$card = $virgilClient->createCard($request);
-
-echo "Created card id:\n";
-echo $card->getId();
-echo "\n";
+return $virgilClient->publishGlobalCard($request);

@@ -2,7 +2,8 @@
 use Virgil\Sdk\Client\Requests\Constants\RevocationReasons;
 use Virgil\Sdk\Client\Requests\RevokeCardRequest;
 
-require 'base.php';
+require_once __DIR__ . '/../base.php';
+
 
 $revokeRequest = new RevokeCardRequest($argv[1], RevocationReasons::TYPE_UNSPECIFIED);
 
@@ -16,4 +17,4 @@ $requestSigner->authoritySign(
 );
 
 
-$virgilClient->revokeCard($revokeRequest);
+return $virgilClient->revokeCard($revokeRequest);

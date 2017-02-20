@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-$card = require __DIR__ . '/../src/application/create.php';
+$card = require __DIR__ . '/../src/global/create_application.php';
 
 echo "Created card id:\n";
 echo $card->getId();

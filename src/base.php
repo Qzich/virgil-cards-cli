@@ -1,8 +1,8 @@
 <?php
 
 use Virgil\Sdk\Buffer;
-use Virgil\Sdk\Client\Requests\Constants\CardScopes;
 use Virgil\Sdk\Client\Requests\RequestSigner;
+use Virgil\Sdk\Client\Validator\CardValidator;
 use Virgil\Sdk\Client\VirgilClient;
 use Virgil\Sdk\Client\VirgilClientParams;
 use Virgil\Sdk\Cryptography\VirgilCrypto;
@@ -12,7 +12,6 @@ require __DIR__ . '/../vendor/autoload.php';
 $config = require __DIR__ . '/../config.php';
 
 $identityType = 'phpsdktest';
-$scope = CardScopes::TYPE_APPLICATION;
 
 $publicKeyBuffer = Buffer::fromBase64($config['public_key']);
 $privateKeyBuffer = Buffer::fromBase64($config['private_key']);
@@ -37,6 +36,8 @@ $params->setRegistrationAuthorityService($config['ra_service_host']);
 
 $virgilClient = new VirgilClient($params);
 $requestSigner = new RequestSigner($crypto);
+
+//$virgilClient->setCardValidator(new CardValidator($crypto));
 
 
 function baseIdentityGenerator($base)
