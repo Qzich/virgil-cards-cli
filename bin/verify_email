@@ -1,0 +1,8 @@
+#!/usr/bin/env php
+<?php
+
+$cationId = require __DIR__ . '/../src/verify_identity_email.php';
+
+echo "Action id:\n";
+echo $cationId;
+echo "\n";

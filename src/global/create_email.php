@@ -8,9 +8,10 @@ require_once __DIR__ . '/../base.php';
 
 $validationToken = $argv[1];
 $validationModel = new ValidationModel($validationToken);
+$data = [$identity()=>$identity()];
 
 $request = new PublishGlobalCardRequest(
-    $identity(), 'email', $crypto->exportPublicKey($publicKeyReference), $validationModel
+    $email, 'email', $crypto->exportPublicKey($publicKeyReference), $validationModel, $data
 );
 
 $requestSigner->selfSign($request, $privateKeyReference);

@@ -1,0 +1,8 @@
+#!/usr/bin/env php
+<?php
+
+$card = require __DIR__ . '/../src/global/create_email.php';
+
+echo "Created card id:\n";
+echo $card->getId();
+echo "\n";

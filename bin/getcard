@@ -1,4 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-require __DIR__ . '/../src/get.php';
+$card = require __DIR__ . '/../src/get.php';
+
+echo $card->getIdentity();
+echo "\n";

@@ -1,0 +1,8 @@
+#!/usr/bin/env php
+<?php
+
+$validationToken = require __DIR__ . '/../src/confirm_identity_email.php';
+
+echo "Validation token:\n";
+echo $validationToken;
+echo "\n";

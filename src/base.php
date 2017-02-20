@@ -12,6 +12,7 @@ require __DIR__ . '/../vendor/autoload.php';
 $config = require __DIR__ . '/../config.php';
 
 $identityType = 'phpsdktest';
+$email = $config['email'];
 
 $publicKeyBuffer = Buffer::fromBase64($config['public_key']);
 $privateKeyBuffer = Buffer::fromBase64($config['private_key']);
