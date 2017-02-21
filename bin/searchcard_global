@@ -1,0 +1,8 @@
+#!/usr/bin/env php
+<?php
+
+$cards = require __DIR__ . '/../src/global/search_email.php';
+
+echo "found cards:";
+echo count($cards);
+echo "\n";
