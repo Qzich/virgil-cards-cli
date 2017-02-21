@@ -1,4 +1,5 @@
 <?php
+use Virgil\Sdk\Client\Requests\Constants\IdentityTypes;
 use Virgil\Sdk\Client\Requests\PublishGlobalCardRequest;
 
 use Virgil\Sdk\Client\VirgilServices\Model\ValidationModel;
@@ -11,7 +12,7 @@ $validationModel = new ValidationModel($validationToken);
 $data = [$identity()=>$identity()];
 
 $request = new PublishGlobalCardRequest(
-    $email, 'email', $crypto->exportPublicKey($publicKeyReference), $validationModel, $data
+    $email, IdentityTypes::TYPE_EMAIL, $crypto->exportPublicKey($publicKeyReference), $validationModel, $data
 );
 
 $requestSigner->selfSign($request, $privateKeyReference);

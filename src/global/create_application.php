@@ -1,10 +1,11 @@
 <?php
+use Virgil\Sdk\Client\Requests\Constants\IdentityTypes;
 use Virgil\Sdk\Client\Requests\PublishGlobalCardRequest;
 
 require_once __DIR__ . '/../base.php';
 
 
-$request = new PublishGlobalCardRequest($identity(), 'application', $crypto->exportPublicKey($publicKeyReference));
+$request = new PublishGlobalCardRequest($identity(), IdentityTypes::TYPE_APPLICATION, $crypto->exportPublicKey($publicKeyReference));
 
 $requestSigner->selfSign($request, $privateKeyReference)
               ->authoritySign(
